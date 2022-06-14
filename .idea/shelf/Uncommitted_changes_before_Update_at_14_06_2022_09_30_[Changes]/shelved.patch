@@ -1,0 +1,573 @@
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <groupId>org.mskoczan</groupId>\r\n    <artifactId>TestingOfTravelFinder</artifactId>\r\n    <version>1.0-SNAPSHOT</version>\r\n\r\n    <properties>\r\n        <maven.compiler.source>17</maven.compiler.source>\r\n        <maven.compiler.target>17</maven.compiler.target>\r\n    </properties>\r\n    \r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision 9ba5c003c028a0e0c12a8167e563039e31234526)
++++ b/pom.xml	(date 1654874551645)
+@@ -11,6 +11,65 @@
+     <properties>
+         <maven.compiler.source>17</maven.compiler.source>
+         <maven.compiler.target>17</maven.compiler.target>
++        <junit.version>5.9.0-M1</junit.version>
+     </properties>
+-    
++
++    <dependencies>
++
++        <dependency>
++            <groupId>org.seleniumhq.selenium</groupId>
++            <artifactId>selenium-java</artifactId>
++            <version>4.2.2</version>
++        </dependency>
++
++        <dependency>
++            <groupId>org.seleniumhq.selenium</groupId>
++            <artifactId>selenium-chrome-driver</artifactId>
++            <version>4.2.2</version>
++        </dependency>
++
++        <dependency>
++            <groupId>io.cucumber</groupId>
++            <artifactId>cucumber-java</artifactId>
++            <version>7.3.4</version>
++        </dependency>
++
++        <dependency>
++            <groupId>io.cucumber</groupId>
++            <artifactId>cucumber-junit</artifactId>
++            <version>7.3.4</version>
++            <scope>test</scope>
++        </dependency>
++
++        <dependency>
++            <groupId>org.junit.jupiter</groupId>
++            <artifactId>junit-jupiter-engine</artifactId>
++            <version>${junit.version}</version>
++            <scope>test</scope>
++        </dependency>
++
++        <dependency>
++            <groupId>org.junit.jupiter</groupId>
++            <artifactId>junit-jupiter-api</artifactId>
++            <version>${junit.version}</version>
++            <scope>test</scope>
++        </dependency>
++
++        <dependency>
++            <groupId>info.cukes</groupId>
++            <artifactId>cucumber-junit</artifactId>
++            <version>1.2.6</version>
++            <type>pom</type>
++            <scope>test</scope>
++        </dependency>
++
++        <dependency>
++            <groupId>info.cukes</groupId>
++            <artifactId>cucumber-java</artifactId>
++            <version>1.2.6</version>
++            <type>pom</type>
++        </dependency>
++
++    </dependencies>
++
+ </project>
+\ No newline at end of file
+Index: src/main/java/org/mskoczan/Main.java
+===================================================================
+diff --git a/src/main/java/org/mskoczan/Main.java b/src/main/java/org/mskoczan/Main.java
+deleted file mode 100644
+--- a/src/main/java/org/mskoczan/Main.java	(revision 9ba5c003c028a0e0c12a8167e563039e31234526)
++++ /dev/null	(revision 9ba5c003c028a0e0c12a8167e563039e31234526)
+@@ -1,5 +0,0 @@
+-package org.mskoczan;public class Main {
+-    public static void main(String[] args) {
+-        System.out.println("Hello world!");
+-    }
+-}
+\ No newline at end of file
+Index: src/Cucumber/Features/RegisterNewUser.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Cucumber/Features/RegisterNewUser.feature b/src/Cucumber/Features/RegisterNewUser.feature
+new file mode 100644
+--- /dev/null	(date 1655187633056)
++++ b/src/Cucumber/Features/RegisterNewUser.feature	(date 1655187633056)
+@@ -0,0 +1,13 @@
++  Feature: Register new user
++
++    Scenario Outline: Register new user account on https://www.wakacyjnipiraci.pl
++      Given Browser opened Main Page https://www.wakacyjnipiraci.pl/
++      When User clicked button Profile
++      And User Clicked button Zarejestruj sie in pop-up
++#      And User filled out valid <email> and <password>
++#      Then User confirmed via clicked button Zarejestruj się
++#      Examples:
++#        |email              |password      |
++#        |krabdrab@gmail.com |!p@SSw0rd2022 |
++
++#      password requires 8 characters, including a special character, number, uppercase letter and lowercase letter
+\ No newline at end of file
+Index: .idea/dictionaries/ms_koczan.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dictionaries/ms_koczan.xml b/.idea/dictionaries/ms_koczan.xml
+new file mode 100644
+--- /dev/null	(date 1654875821723)
++++ b/.idea/dictionaries/ms_koczan.xml	(date 1654875821723)
+@@ -0,0 +1,7 @@
++<component name="ProjectDictionaryState">
++  <dictionary name="ms.koczan">
++    <words>
++      <w>krabdrab@gmail.com</w>
++    </words>
++  </dictionary>
++</component>
+\ No newline at end of file
+Index: src/test/java/steps/RegisterNewUserSteps.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/steps/RegisterNewUserSteps.java b/src/test/java/steps/RegisterNewUserSteps.java
+new file mode 100644
+--- /dev/null	(date 1655191736910)
++++ b/src/test/java/steps/RegisterNewUserSteps.java	(date 1655191736910)
+@@ -0,0 +1,58 @@
++package steps;
++
++import io.cucumber.java.en.And;
++import io.cucumber.java.en.Given;
++import io.cucumber.java.en.When;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.chrome.ChromeDriver;
++
++import java.time.Duration;
++
++public class RegisterNewUserSteps {
++    private WebDriver driver;
++
++    @Given("^Browser opened Main Page(.*)$")
++    public void browserOpenedTravelFinder(String mainPage) {
++
++        //Sterownik przeglądarki-konfiguracja
++        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
++        driver = new ChromeDriver();
++        driver.manage().window().maximize();
++        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
++        driver.get(mainPage);
++    }
++
++    @When("^User clicked button Profile$")
++    public void userClickedButtonProfile() {
++        WebElement profileButton = driver.findElement(By.xpath("//*[@id=\"_desktop_user_info\"]/div/a/span"));
++        profileButton.click();
++
++    }
++
++    @And("^User Clicked button Zarejestruj sie in pop-up$")
++    public void userClickedButtonZarejestrujSieInPopUp() {
++        PopUpPage popUpPage = new PopUpPage(driver);
++        popUpPage.clickedRegisterButton();
++
++    }
++
++//    @And("^User Clicked button Zarejestruj sie in pop-up$")
++//    public void userClickedButtonZarejestrujSieInPopUp() {
++//        PopUpPage popUpPage = new PopUpPage(driver);
++//        popUpPage.clickedZarejestrujSie();
++//
++//    }
++
++//    @And("^User filled out valid (.*) and (.*)$")
++//    public void userShouldLogin() {
++//        PopUpPage popUpPage = new PopUpPage(driver);
++//        popUpPage.setZarejestrujSie();
++//
++//    }
++//
++//    @Then("User confirmed via clicked button Zarejestruj się")
++//    public void userConfirmedViaClickedButtonZarejestrujSię() {
++//        PopUpPage popUpPage = new PopUpPage(driver);
++//        popUpPage.setZarejestrujSie();
++//    }
++}
+Index: src/test/java/page/TestSupportTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/page/TestSupportTest.java b/src/test/java/page/TestSupportTest.java
+new file mode 100644
+--- /dev/null	(date 1655101759221)
++++ b/src/test/java/page/TestSupportTest.java	(date 1655101759221)
+@@ -0,0 +1,15 @@
++package page;
++
++
++import io.cucumber.junit.Cucumber;
++import io.cucumber.junit.CucumberOptions;
++import org.junit.runner.RunWith;
++
++@RunWith(Cucumber.class)
++@CucumberOptions(features = "src/Cucumber/Features",
++        glue = {"steps"},
++        plugin = {"pretty","html:out"})
++
++
++public class TestSupportTest {
++}
+Index: .idea/uiDesigner.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/uiDesigner.xml b/.idea/uiDesigner.xml
+new file mode 100644
+--- /dev/null	(date 1654876182666)
++++ b/.idea/uiDesigner.xml	(date 1654876182666)
+@@ -0,0 +1,124 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Palette2">
++    <group name="Swing">
++      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="1" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="1" anchor="0" fill="2" />
++      </item>
++      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.svg" removable="false" auto-create-binding="false" can-attach-label="true">
++        <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="0" fill="1" />
++        <initial-values>
++          <property name="text" value="Button" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="RadioButton" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="CheckBox" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="Label" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="2" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="2" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1">
++          <preferred-size width="-1" height="20" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="0" anchor="0" fill="2" />
++      </item>
++    </group>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"2c1cac6d-480f-4ff5-add0-9ad413b14be7\" name=\"Changes\" comment=\"\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectCodeStyleSettingsMigration\">\r\n    <option name=\"version\" value=\"2\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2AOArSCuZYP5Nt28mJzsCq6II8V\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <created>1654870464248</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1654870464248</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 9ba5c003c028a0e0c12a8167e563039e31234526)
++++ b/.idea/workspace.xml	(date 1655191737549)
+@@ -1,14 +1,49 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="2c1cac6d-480f-4ff5-add0-9ad413b14be7" name="Changes" comment="" />
++    <list default="true" id="2c1cac6d-480f-4ff5-add0-9ad413b14be7" name="Changes" comment="">
++      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/ms_koczan.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/Cucumber/Features/RegisterNewUser.feature" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/resources/chromedriver.exe" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/resources/msedgedriver.exe" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/test/java/page/TestSupportTest.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/test/java/steps/RegisterNewUserSteps.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/mskoczan/Main.java" beforeDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
++  <component name="CodeStyleSettingsInfer">
++    <option name="done" value="true" />
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="JUnit5 Test Class" />
++        <option value="Class" />
++      </list>
++    </option>
++  </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="GithubDefaultAccount">
++    <option name="defaultAccountId" value="176d8a6f-8365-4a1e-bdad-beb3558a498b" />
++  </component>
++  <component name="MarkdownSettingsMigration">
++    <option name="stateVersion" value="1" />
++  </component>
++  <component name="ProblemsViewState">
++    <option name="selectedTabId" value="CurrentFile" />
+   </component>
+   <component name="ProjectCodeStyleSettingsMigration">
+     <option name="version" value="2" />
+@@ -19,15 +54,100 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
++    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
++    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers&quot;: &quot;true&quot;,
++    &quot;last_directory_selection&quot;: &quot;C:/Users/mskoc/IdeaProjects/TestingOfTravelFinder/src/test/java/steps&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/mskoc/IdeaProjects/TestingOfTravelFinder/src/test/java/steps&quot;,
++    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;
+   }
+-}]]></component>
++}</component>
++  <component name="RecentsManager">
++    <key name="CreateClassDialog.RecentsKey">
++      <recent name="page" />
++    </key>
++    <key name="CreateTestDialog.Recents.Supers">
++      <recent name="" />
++    </key>
++    <key name="MoveFile.RECENT_KEYS">
++      <recent name="C:\Users\mskoc\IdeaProjects\TestingOfTravelFinder\src\main\resources" />
++    </key>
++    <key name="CreateTestDialog.RecentsKey">
++      <recent name="steps" />
++    </key>
++  </component>
++  <component name="RunManager" selected="Cucumber Java.Feature: RegisterNewUser">
++    <configuration name="Feature: RegisterNewUser" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
++      <option name="CUCUMBER_CORE_VERSION" value="5" />
++      <option name="FILE_PATH" value="$PROJECT_DIR$/src/Cucumber/Features/RegisterNewUser.feature" />
++      <option name="GLUE" value="steps" />
++      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
++      <module name="TestingOfTravelFinder" />
++      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
++      <option name="SUGGESTED_NAME" value="Feature: RegisterNewUser" />
++      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="io.cucumber.core.cli.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="Scenario: Register new user account on https://www.wakacyjnipiraci.pl" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
++      <option name="CUCUMBER_CORE_VERSION" value="5" />
++      <option name="FILE_PATH" value="$PROJECT_DIR$/src/Cucumber/Features/RegisterNewUser.feature" />
++      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
++      <module name="TestingOfTravelFinder" />
++      <option name="NAME_FILTER" value="^Register new user account on https\:\/\/www\.wakacyjnipiraci\.pl$" />
++      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Register new user account on https\:\/\/www\.wakacyjnipiraci\.pl$&quot;" />
++      <option name="SUGGESTED_NAME" value="Scenario: Register new user account on https://www.wakacyjnipiraci.pl" />
++      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="io.cucumber.core.cli.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="TestSupportTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="TestingOfTravelFinder" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="page.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="PACKAGE_NAME" value="page" />
++      <option name="MAIN_CLASS_NAME" value="page.TestSupportTest" />
++      <option name="TEST_OBJECT" value="class" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Cucumber Java.Feature: RegisterNewUser" />
++        <item itemvalue="Cucumber Java.Scenario: Register new user account on https://www.wakacyjnipiraci.pl" />
++        <item itemvalue="JUnit.TestSupportTest" />
++      </list>
++    </recent_temporary>
++  </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
++      <changelist id="2c1cac6d-480f-4ff5-add0-9ad413b14be7" name="Changes" comment="" />
+       <created>1654870464248</created>
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+@@ -35,4 +155,19 @@
+     </task>
+     <servers />
+   </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
++  <component name="XSLT-Support.FileAssociations.UIState">
++    <expand />
++    <select />
++  </component>
+ </project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_17\" default=\"true\" project-jdk-name=\"17 (2)\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 9ba5c003c028a0e0c12a8167e563039e31234526)
++++ b/.idea/misc.xml	(date 1654872109634)
+@@ -1,6 +1,13 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="MavenProjectsManager">
++    <option name="originalFiles">
++      <list>
++        <option value="$PROJECT_DIR$/pom.xml" />
++      </list>
++    </option>
++  </component>
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17 (2)" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
